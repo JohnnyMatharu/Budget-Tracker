@@ -31,6 +31,15 @@ app.listen(PORT, () => {
 
 
 /*
+ For service worker inclass activity sample
+ * Navigate to <http://localhost:3001> in Chrome and open the Dev Tools. In the `Application` tab, click on `Service Workers` on the left menu. Check to see if your service worker file was successfully found.
+
+* If done correctly, you should see two messages logged in the browser console: one from the `service-worker.js` file and one from the script tag that you put in your `index.html` file.
+
+Currently unable to npm run seed, or node server cannot be on
+
+
+
 
 Your challenge this week is to update an existing budget tracker application to allow for offline access and functionality.
 
@@ -54,10 +63,17 @@ Find out (TA):
 1. how and where to use indexdb
 2. why we use this if service worker already
 3. how we can establish both and one section or seperate
-
+4. Currently unable to npm run seed, or node server cannot be on
+5. Files to cache we have to choose
+6. After server running how to check offline, and see cache items and service worker file
+7. how to check on network everything
+8. Do we need to install this
 Require service woker
 Require Manifest.json
 Require indexDb
+9. What we include Manifest.json, fix it 
+
+Check Run `npm run seed`, and `npm start` not working and npm init if needed may be needed
 
 Chrome DevTools makes it possible to test service workers on localhost in development. Simply click the Application tab, then select Service Workers from the menu on the left.
 
