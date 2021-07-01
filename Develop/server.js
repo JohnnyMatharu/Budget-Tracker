@@ -59,18 +59,19 @@ You’ll also need to add a service worker to your application. Review Module 19
 Start with Service Worker first
 
 
-Find out (TA): 
-1. how and where to use indexdb
-2. why we use this if service worker already
-3. how we can establish both and one section or seperate
-4. Currently unable to npm run seed, or node server cannot be on
-5. Files to cache we have to choose
-6. After server running how to check offline, and see cache items and service worker file
-7. how to check on network everything
-8. Do we need to install this
-Require service woker
-Require Manifest.json
-Require indexDb
+
+Find out: (some stuff in class video, check mod code, ask tutor, office hours and AskBCS)
+1. After server running see cache items and service worker file
+2. how to check on network everything 
+3. What we include Manifest.json, fix it 
+
+NEXT (node server.js will run on develop folder, make sure server and mongo running -use database)
+Work on Manifest.json - check it from sources - make sure import on index.html
+Work on indexDb (check module)
+Test everything 
+
+
+
 9. What we include Manifest.json, fix it 
 
 Check Run `npm run seed`, and `npm start` not working and npm init if needed may be needed
