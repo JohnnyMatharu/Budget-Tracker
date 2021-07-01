@@ -60,15 +60,11 @@ Start with Service Worker first
 
 
 
-Find out: (some stuff in class video, check mod code, ask tutor, office hours and AskBCS)
-1. After server running see cache items and service worker file
-2. how to check on network everything 
-3. What we include Manifest.json, fix it 
+Find out: (some stuff in class video, check mod code, office hours and AskBCS)
+Q. how to check on network everything service worker, manifest.json and indexdb including practical and console
 
-NEXT (node server.js will run on develop folder, make sure server and mongo running -use database)
-Work on Manifest.json - check it from sources - make sure import on index.html
-Work on indexDb (check module)
-Test everything 
+Steps, indexdb, check all 3 practically its functionality and create issues of AskBCS (check console)
+
 
 
 
