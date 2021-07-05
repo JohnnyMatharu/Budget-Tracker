@@ -1,11 +1,11 @@
 //this is a sample code (check from module what else is required)
 
 let db;
-const request = indexedDB.open('pizza_hunt', 1);
+const request = indexedDB.open('budget-tackler', 1);
 
 request.onupgradeneeded = function(event) {
   const db = event.target.result;
-  db.createObjectStore('new_pizza', { autoIncrement: true });
+  db.createObjectStore('new-transaction', { autoIncrement: true });
 };
 
 request.onsuccess = function(event) {
@@ -14,7 +14,7 @@ request.onsuccess = function(event) {
 
   // check if app is online, if yes run checkDatabase() function to send all local db data to api
   if (navigator.onLine) {
-    uploadPizza();
+    uploadTransaction();
   }
 };
 
@@ -24,28 +24,32 @@ request.onerror = function(event) {
 };
 
 function saveRecord(record) {
-  const transaction = db.transaction(['new_pizza'], 'readwrite');
+  const transaction = db.transaction(['new-transaction'], 'readwrite');
 
-  const pizzaObjectStore = transaction.objectStore('new_pizza');
+  const transactionObjectStore = transaction.objectStore('new-transaction');
 
   // add record to your store with add method.
-  pizzaObjectStore.add(record);
+  transactionObjectStore.add(record);
 }
 
-function uploadPizza() {
+function uploadTransaction() {
   // open a transaction on your pending db
-  const transaction = db.transaction(['new_pizza'], 'readwrite');
+  const transaction = db.transaction(['new-transaction'], 'readwrite');
 
   // access your pending object store
-  const pizzaObjectStore = transaction.objectStore('new_pizza');
+  const transactionObjectStore = transaction.objectStore('new-transaction');
 
   // get all records from store and set to a variable
-  const getAll = pizzaObjectStore.getAll();
+  const getAll = transactionObjectStore.getAll();
 
   getAll.onsuccess = function() {
     // if there was data in indexedDb's store, let's send it to the api server
+    
+    //you will need to check this:
+  
+    
     if (getAll.result.length > 0) {
-      fetch('/api/pizzas', {
+      fetch('/api/transaction', {
         method: 'POST',
         body: JSON.stringify(getAll.result),
         headers: {
@@ -59,10 +63,10 @@ function uploadPizza() {
             throw new Error(serverResponse);
           }
 
-          const transaction = db.transaction(['new_pizza'], 'readwrite');
-          const pizzaObjectStore = transaction.objectStore('new_pizza');
+          const transaction = db.transaction(['new-transaction'], 'readwrite');
+          const transactionObjectStore = transaction.objectStore('new-transaction');
           // clear all items in your store
-          pizzaObjectStore.clear();
+          transactionObjectStore.clear();
         })
         .catch(err => {
           // set reference to redirect back here
@@ -73,4 +77,4 @@ function uploadPizza() {
 }
 
 // listen for app coming back online
-window.addEventListener('online', uploadPizza);
+window.addEventListener('online', uploadTransaction);
