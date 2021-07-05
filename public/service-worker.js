@@ -27,6 +27,7 @@ const FILES_TO_CACHE = [
   "./js/index.js"
 ];
 
+// Install the service worker
 self.addEventListener('install', function(evt) {
   evt.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
