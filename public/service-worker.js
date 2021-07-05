@@ -27,17 +27,32 @@ const FILES_TO_CACHE = [
   './js/index.js'
 ];
 
-// Install the service worker
 self.addEventListener('install', function(evt) {
   evt.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
+      console.log({cache})
+      console.log({CACHE_NAME})
+      console.log({evt})
       console.log('Your files were pre-cached successfully!');
+      // console.log("cache.addAll(FILES_TO_CACHE):", cache.addAll(FILES_TO_CACHE))
       return cache.addAll(FILES_TO_CACHE);
     })
   );
 
   self.skipWaiting();
 });
+
+// Install the service worker
+//self.addEventListener('install', function(evt) {
+ // evt.waitUntil(
+  //  caches.open(CACHE_NAME).then(cache => {
+   //   console.log('Your files were pre-cached successfully!');
+    //  return cache.addAll(FILES_TO_CACHE);
+   // })
+ // );
+
+ // self.skipWaiting();
+//});
 
 // Activate the service worker and remove old data from the cache
 self.addEventListener('activate', function(evt) {
